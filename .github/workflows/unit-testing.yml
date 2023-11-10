@@ -1,26 +1,23 @@
-name: Unit testing
-
-on:
+name: Automated Unit Testing
+on: 
   pull_request:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
-  run-tests:
-    name: Run Tests
+  run-unit-tests:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        
-      - name: Set up Node.js
+      - name: Checkout under $GITHUB_WORKSPACE
+        uses: actions/checkout@main
+
+      - name: Set up NodeJS
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install all dependencies
         run: npm install
 
       - name: Run Tests
