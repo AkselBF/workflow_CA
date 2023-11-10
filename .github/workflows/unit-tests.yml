@@ -1,4 +1,4 @@
-name: Run Tests
+name: Unit testing
 
 on:
   pull_request:
@@ -24,4 +24,4 @@ jobs:
         run: npm install
 
       - name: Run Tests
-        run: npm run test
+        run: npm run test-unit
